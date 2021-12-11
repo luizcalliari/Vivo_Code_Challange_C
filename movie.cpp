@@ -6,138 +6,49 @@
 
 
 Movie::Movie(std::string movie_data){
-    int i, j;
-    i = movie_data.find("\"Title\":");
-    i = movie_data.find("\":\"", i+1)+3;
-    j = movie_data.find("\",\"", i+1);
-    movie_title = movie_data.substr(i,j-i);
-
-    i = movie_data.find("\"Year\":");
-    i = movie_data.find("\":\"", i+1)+3;
-    j = movie_data.find("\",\"", i+1);
-    movie_year = movie_data.substr(i,j-i);
-    
-    i = movie_data.find("\"Rated\":");
-    i = movie_data.find("\":\"", i+1)+3;
-    j = movie_data.find("\",\"", i+1);
-    movie_rated = movie_data.substr(i,j-i);
-    
-    i = movie_data.find("\"Released\":");
-    i = movie_data.find("\":\"", i+1)+3;
-    j = movie_data.find("\",\"", i+1);
-    movie_released = movie_data.substr(i,j-i);
-    
-    i = movie_data.find("\"Runtime\":");
-    i = movie_data.find("\":\"", i+1)+3;
-    j = movie_data.find("\",\"", i+1);
-    movie_runtime = movie_data.substr(i,j-i);
-    
-    i = movie_data.find("\"Genre\":");
-    i = movie_data.find("\":\"", i+1)+3;
-    j = movie_data.find("\",\"", i+1);
-    movie_genre = movie_data.substr(i,j-i);
-
-    i = movie_data.find("\"Director\":");
-    i = movie_data.find("\":\"", i+1)+3;
-    j = movie_data.find("\",\"", i+1);
-    movie_director = movie_data.substr(i,j-i);
-
-    i = movie_data.find("\"Writer\":");
-    i = movie_data.find("\":\"", i+1)+3;
-    j = movie_data.find("\",\"", i+1);
-    movie_writer = movie_data.substr(i,j-i);
-    
-    i = movie_data.find("\"Actors\":");
-    i = movie_data.find("\":\"", i+1)+3;
-    j = movie_data.find("\",\"", i+1);
-    movie_actors = movie_data.substr(i,j-i);
-
-    i = movie_data.find("\"Plot\":");
-    i = movie_data.find("\":\"", i+1)+3;
-    j = movie_data.find("\",\"", i+1);
-    movie_plot = movie_data.substr(i,j-i);
-    
-    i = movie_data.find("\"Language\":");
-    i = movie_data.find("\":\"", i+1)+3;
-    j = movie_data.find("\",\"", i+1);
-    movie_language = movie_data.substr(i,j-i);
-
-    i = movie_data.find("\"Country\":");
-    i = movie_data.find("\":\"", i+1)+3;
-    j = movie_data.find("\",\"", i+1);
-    movie_country = movie_data.substr(i,j-i);
-
-    i = movie_data.find("\"Awards\":");
-    i = movie_data.find("\":\"", i+1)+3;
-    j = movie_data.find("\",\"", i+1);
-    movie_awards = movie_data.substr(i,j-i);
-
-    i = movie_data.find("\"Poster\":");
-    i = movie_data.find("\":\"", i+1)+3;
-    j = movie_data.find("\",\"", i+1);
-    movie_poster = movie_data.substr(i,j-i);
-
-    i = movie_data.find("\"Source\":");
-    i = movie_data.find("\":\"", i+1)+3;
-    j = movie_data.find("\",\"", i+1);
-    movie_source = movie_data.substr(i,j-i);
-    
-    i = movie_data.find("\"Value\":");
-    i = movie_data.find("\":\"", i+1)+3;
-    j = movie_data.find("\"},{\"", i+1);
-    movie_value = movie_data.substr(i,j-i);
-
-    i = movie_data.find("\"Metascore\":");
-    i = movie_data.find("\":\"", i+1)+3;
-    j = movie_data.find("\",\"", i+1);
-    movie_metascore = movie_data.substr(i,j-i);
-
-    i = movie_data.find("\"imdbRating\":");
-    i = movie_data.find("\":\"", i+1)+3;
-    j = movie_data.find("\",\"", i+1);
-    movie_imdbrating = movie_data.substr(i,j-i);
-
-    i = movie_data.find("\"imdbVotes\":");
-    i = movie_data.find("\":\"", i+1)+3;
-    j = movie_data.find("\",\"", i+1);
-    movie_imdbvotes = movie_data.substr(i,j-i);
-
-    i = movie_data.find("\"imdbID\":");
-    i = movie_data.find("\":\"", i+1)+3;
-    j = movie_data.find("\",\"", i+1);
-    movie_imdbid = movie_data.substr(i,j-i);
-
-    i = movie_data.find("\"Type\":");
-    i = movie_data.find("\":\"", i+1)+3;
-    j = movie_data.find("\",\"", i+1);
-    movie_type = movie_data.substr(i,j-i);
-
-    i = movie_data.find("\"DVD\":");
-    i = movie_data.find("\":\"", i+1)+3;
-    j = movie_data.find("\",\"", i+1);
-    movie_dvd = movie_data.substr(i,j-i);
-
-    i = movie_data.find("\"BoxOffice\":");
-    i = movie_data.find("\":\"", i+1)+3;
-    j = movie_data.find("\",\"", i+1);
-    movie_boxoffice = movie_data.substr(i,j-i);
-
-    i = movie_data.find("\"Production\":");
-    i = movie_data.find("\":\"", i+1)+3;
-    j = movie_data.find("\",\"", i+1);
-    movie_production = movie_data.substr(i,j-i);
-
-    i = movie_data.find("\"Website\":");
-    i = movie_data.find("\":\"", i+1)+3;
-    j = movie_data.find("\",\"", i+1);
-    movie_website = movie_data.substr(i,j-i);
-
-    i = movie_data.find("\"totakSeasons\":");
-    i = movie_data.find("\":\"", i+1)+3;
-    j = movie_data.find("\",\"", i+1);
-    movie_totalseasons = movie_data.substr(i,j-i);
-
+    movie_title = parse_string(movie_data, "\"Title\":","\",\"");
+    movie_year = parse_string(movie_data, "\"Year\":","\",\"");
+    movie_rated = parse_string(movie_data, "\"Rated\":","\",\"");
+    movie_released = parse_string(movie_data, "\"Released\":","\",\"");
+    movie_runtime = parse_string(movie_data, "\"Runtime\":","\",\"");
+    movie_genre = parse_string(movie_data, "\"Genre\":","\",\"");
+    movie_director = parse_string(movie_data, "\"Director\":","\",\"");
+    movie_writer = parse_string(movie_data, "\"Writer\":","\",\"");
+    movie_actors = parse_string(movie_data, "\"Actors\":","\",\"");
+    movie_plot = parse_string(movie_data, "\"Plot\":","\",\"");
+    movie_language = parse_string(movie_data, "\"Language\":","\",\"");
+    movie_country = parse_string(movie_data, "\"Country\":","\",\"");
+    movie_awards = parse_string(movie_data, "\"Awards\":","\",\"");
+    movie_poster = parse_string(movie_data, "\"Poster\":","\",\"");
+    movie_source = parse_string(movie_data, "\"Source\":","\",\"");
+    movie_value = parse_string(movie_data, "\"Value\":","\"}],");
+    movie_metascore = parse_string(movie_data, "\"Metascore\":","\",\"");
+    movie_imdbrating = parse_string(movie_data, "\"imdbRating\":","\",\"");
+    movie_imdbvotes = parse_string(movie_data, "\"imdbVotes\":","\",\"");
+    movie_imdbid = parse_string(movie_data, "\"imdbID\":","\",\"");
+    movie_type = parse_string(movie_data, "\"Type\":","\",\"");
+    movie_dvd = parse_string(movie_data, "\"DVD\":","\",\"");
+    movie_boxoffice = parse_string(movie_data, "\"BoxOffice\":","\",\"");
+    movie_production = parse_string(movie_data, "\"Production\":","\",\"");
+    movie_website = parse_string(movie_data, "\"Website\":","\",\"");
+    movie_totalseasons = parse_string(movie_data, "\"totalSeasons\":","\",\"");
 }
+
+
+std::string Movie::parse_string(std::string data_to_parse, std::string str_i, std::string str_f){
+    std::string info;
+    int i, j;
+    i = data_to_parse.find(str_i);
+    if(i != -1){
+        i = data_to_parse.find("\":\"", i+1)+3;
+        j = data_to_parse.find(str_f, i+1);
+        info = data_to_parse.substr(i,j-i);
+    } else {
+        info = "N/A";
+    }
+    return info;
+}
+
 
 std::string Movie::getMovie_type(){
     return movie_type;

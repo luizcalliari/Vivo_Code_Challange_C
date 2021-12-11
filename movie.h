@@ -29,9 +29,9 @@ class Movie{
 
     public:
         Movie(std::string movie_data);
+        std::string parse_string(std::string data_to_parse, std::string str_i, std::string str_f);
         std::string getMovie_type();
         void getMovie_description();
-        std::string parse_string();
 };
 
 class Request{
