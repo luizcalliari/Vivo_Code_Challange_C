@@ -1,3 +1,5 @@
+#include <curl/curl.h>
+
 class Movie{
     private:
         std::string movie_title;
@@ -72,3 +74,4 @@ class Request{
 
 std::string getHelp();
 std::string build_movie_name(int argc_aux, char** argv_aux);
+void print_moviegets(Movie movie_info);
