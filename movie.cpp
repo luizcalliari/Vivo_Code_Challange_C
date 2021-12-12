@@ -3,32 +3,61 @@
 #include <cstring>
 
 Movie::Movie(std::string movie_data){
-    movie_title = parse_string(movie_data, "\"Title\":","\",\"");
-    movie_year = parse_string(movie_data, "\"Year\":","\",\"");
-    movie_rated = parse_string(movie_data, "\"Rated\":","\",\"");
-    movie_released = parse_string(movie_data, "\"Released\":","\",\"");
-    movie_runtime = parse_string(movie_data, "\"Runtime\":","\",\"");
-    movie_genre = parse_string(movie_data, "\"Genre\":","\",\"");
-    movie_director = parse_string(movie_data, "\"Director\":","\",\"");
-    movie_writer = parse_string(movie_data, "\"Writer\":","\",\"");
-    movie_actors = parse_string(movie_data, "\"Actors\":","\",\"");
-    movie_plot = parse_string(movie_data, "\"Plot\":","\",\"");
-    movie_language = parse_string(movie_data, "\"Language\":","\",\"");
-    movie_country = parse_string(movie_data, "\"Country\":","\",\"");
-    movie_awards = parse_string(movie_data, "\"Awards\":","\",\"");
-    movie_poster = parse_string(movie_data, "\"Poster\":","\",\"");
-    movie_source = parse_string(movie_data, "\"Source\":","\",\"");
-    movie_value = parse_string(movie_data, "\"Value\":","\"}");
-    movie_metascore = parse_string(movie_data, "\"Metascore\":","\",\"");
-    movie_imdbrating = parse_string(movie_data, "\"imdbRating\":","\",\"");
-    movie_imdbvotes = parse_string(movie_data, "\"imdbVotes\":","\",\"");
-    movie_imdbid = parse_string(movie_data, "\"imdbID\":","\",\"");
-    movie_type = parse_string(movie_data, "\"Type\":","\",\"");
-    movie_dvd = parse_string(movie_data, "\"DVD\":","\",\"");
-    movie_boxoffice = parse_string(movie_data, "\"BoxOffice\":","\",\"");
-    movie_production = parse_string(movie_data, "\"Production\":","\",\"");
-    movie_website = parse_string(movie_data, "\"Website\":","\",\"");
-    movie_totalseasons = parse_string(movie_data, "\"totalSeasons\":","\",\"");
+    if(parse_string(movie_data, "\"Response\":","\"}") == "True"){
+        movie_title = parse_string(movie_data, "\"Title\":","\",\"");
+        movie_year = parse_string(movie_data, "\"Year\":","\",\"");
+        movie_rated = parse_string(movie_data, "\"Rated\":","\",\"");
+        movie_released = parse_string(movie_data, "\"Released\":","\",\"");
+        movie_runtime = parse_string(movie_data, "\"Runtime\":","\",\"");
+        movie_genre = parse_string(movie_data, "\"Genre\":","\",\"");
+        movie_director = parse_string(movie_data, "\"Director\":","\",\"");
+        movie_writer = parse_string(movie_data, "\"Writer\":","\",\"");
+        movie_actors = parse_string(movie_data, "\"Actors\":","\",\"");
+        movie_plot = parse_string(movie_data, "\"Plot\":","\",\"");
+        movie_language = parse_string(movie_data, "\"Language\":","\",\"");
+        movie_country = parse_string(movie_data, "\"Country\":","\",\"");
+        movie_awards = parse_string(movie_data, "\"Awards\":","\",\"");
+        movie_poster = parse_string(movie_data, "\"Poster\":","\",\"");
+        movie_source = parse_string(movie_data, "\"Source\":","\",\"");
+        movie_value = parse_string(movie_data, "\"Value\":","\"}");
+        movie_metascore = parse_string(movie_data, "\"Metascore\":","\",\"");
+        movie_imdbrating = parse_string(movie_data, "\"imdbRating\":","\",\"");
+        movie_imdbvotes = parse_string(movie_data, "\"imdbVotes\":","\",\"");
+        movie_imdbid = parse_string(movie_data, "\"imdbID\":","\",\"");
+        movie_type = parse_string(movie_data, "\"Type\":","\",\"");
+        movie_dvd = parse_string(movie_data, "\"DVD\":","\",\"");
+        movie_boxoffice = parse_string(movie_data, "\"BoxOffice\":","\",\"");
+        movie_production = parse_string(movie_data, "\"Production\":","\",\"");
+        movie_website = parse_string(movie_data, "\"Website\":","\",\"");
+        movie_totalseasons = parse_string(movie_data, "\"totalSeasons\":","\",\"");
+    } else {
+        movie_title = "Filme não encontrado";
+        movie_year = "Filme não encontrado";
+        movie_rated = "Filme não encontrado";
+        movie_released = "Filme não encontrado";
+        movie_runtime = "Filme não encontrado";
+        movie_genre = "Filme não encontrado";
+        movie_director = "Filme não encontrado";
+        movie_writer = "Filme não encontrado";
+        movie_actors = "Filme não encontrado";
+        movie_plot = "Filme não encontrado";
+        movie_language = "Filme não encontrado";
+        movie_country = "Filme não encontrado";
+        movie_awards = "Filme não encontrado";
+        movie_poster ="Filme não encontrado";
+        movie_source ="Filme não encontrado";
+        movie_value ="Filme não encontrado";
+        movie_metascore = "Filme não encontrado";
+        movie_imdbrating ="Filme não encontrado";
+        movie_imdbvotes ="Filme não encontrado";
+        movie_imdbid = "Filme não encontrado";
+        movie_type = "Filme não encontrado";
+        movie_dvd = "Filme não encontrado";
+        movie_boxoffice = "Filme não encontrado";
+        movie_production = "Filme não encontrado";
+        movie_website = "Filme não encontrado";
+        movie_totalseasons = "Filme não encontrado";
+    }
 }
 
 
