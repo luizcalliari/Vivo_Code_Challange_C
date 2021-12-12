@@ -14,3 +14,9 @@ To show all the movie/serie details:
 
 TO show the movie type:
 > ./main -t movie_name
+
+# Compiling the tests:
+> make test
+
+# Executing the test code:
+> ./unit_test
