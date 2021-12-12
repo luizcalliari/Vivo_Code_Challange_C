@@ -1,7 +1,6 @@
 #include <iostream>
 #include <cstring>
 #include <curl/curl.h>
-#include <vector>
 #include "movie.h"
 
 
@@ -21,7 +20,7 @@ Movie::Movie(std::string movie_data){
     movie_awards = parse_string(movie_data, "\"Awards\":","\",\"");
     movie_poster = parse_string(movie_data, "\"Poster\":","\",\"");
     movie_source = parse_string(movie_data, "\"Source\":","\",\"");
-    movie_value = parse_string(movie_data, "\"Value\":","\"}],");
+    movie_value = parse_string(movie_data, "\"Value\":","\"}");
     movie_metascore = parse_string(movie_data, "\"Metascore\":","\",\"");
     movie_imdbrating = parse_string(movie_data, "\"imdbRating\":","\",\"");
     movie_imdbvotes = parse_string(movie_data, "\"imdbVotes\":","\",\"");
@@ -50,37 +49,109 @@ std::string Movie::parse_string(std::string data_to_parse, std::string str_i, st
 }
 
 
-std::string Movie::getMovie_type(){
-    return movie_type;
+std::string Movie::getMovie_title(){
+    return movie_title;
 }
 
-void Movie::getMovie_description(){
-    std::cout << "Título: " << movie_title << std::endl;
-    std::cout << "Year: " << movie_year << std::endl;
-    std::cout << "Rated: " << movie_rated << std::endl;
-    std::cout << "Released: " << movie_released << std::endl;
-    std::cout << "Runtime: " << movie_runtime << std::endl;
-    std::cout << "Genre: " << movie_genre << std::endl;
-    std::cout << "DIrector: " << movie_director << std::endl;
-    std::cout << "Writer: " << movie_writer << std::endl;
-    std::cout << "Actors: " << movie_actors << std::endl;
-    std::cout << "Plot: " << movie_plot << std::endl;
-    std::cout << "Language: " << movie_language << std::endl;
-    std::cout << "Country: " << movie_country << std::endl;
-    std::cout << "Awards: " << movie_awards << std::endl;
-    std::cout << "Poster: " << movie_poster << std::endl;
-    std::cout << "Source: " << movie_source << std::endl;
-    std::cout << "Value: " << movie_value << std::endl;
-    std::cout << "Metascore: " << movie_metascore << std::endl;
-    std::cout << "imdbRating: " << movie_imdbrating << std::endl;
-    std::cout << "imdbID: " << movie_imdbid << std::endl;
-    std::cout << "Type: " << movie_type << std::endl;
-    std::cout << "DVD: " << movie_dvd << std::endl;
-    std::cout << "BoxOffice: " << movie_boxoffice << std::endl;
-    std::cout << "Production: " << movie_production << std::endl;
-    std::cout << "Website: " << movie_website << std::endl;
-    std::cout << "Total Seasons: " << movie_totalseasons << std::endl;
-}
+std::string Movie::getMovie_year(){
+    return movie_year;
+} 
+
+std::string Movie::getMovie_rated(){
+    return movie_rated;
+} 
+
+std::string Movie::getMovie_released(){
+    return movie_released;
+} 
+
+std::string Movie::getMovie_runtime(){
+    return movie_runtime;
+} 
+
+std::string Movie::getMovie_genre(){
+    return movie_genre;
+} 
+
+std::string Movie::getMovie_director(){
+    return movie_director;
+} 
+
+std::string Movie::getMovie_writer(){
+    return movie_writer;
+} 
+
+std::string Movie::getMovie_actors(){
+    return movie_actors;
+} 
+
+std::string Movie::getMovie_plot(){
+    return movie_plot;
+} 
+
+std::string Movie::getMovie_language(){
+    return movie_language;
+} 
+
+std::string Movie::getMovie_country(){
+    return movie_country;
+} 
+
+std::string Movie::getMovie_awards(){
+    return movie_awards;
+} 
+
+std::string Movie::getMovie_poster(){
+    return movie_poster;
+} 
+
+std::string Movie::getMovie_source(){
+    return movie_source;
+} 
+
+std::string Movie::getMovie_value(){
+    return movie_value;
+} 
+
+std::string Movie::getMovie_metascore(){
+    return movie_metascore;
+} 
+
+std::string Movie::getMovie_imdbrating(){
+    return movie_imdbrating;
+} 
+
+std::string Movie::getMovie_imdbvotes(){
+    return movie_imdbvotes;
+} 
+
+std::string Movie::getMovie_imdbid(){
+    return movie_imdbid;
+} 
+
+std::string Movie::getMovie_type(){
+    return movie_type;
+} 
+
+std::string Movie::getMovie_dvd(){
+    return movie_dvd;
+} 
+
+std::string Movie::getMovie_boxoffice(){
+    return movie_boxoffice;
+} 
+
+std::string Movie::getMovie_production(){
+    return movie_production;
+} 
+
+std::string Movie::getMovie_website(){
+    return movie_website;
+} 
+
+std::string Movie::getMovie_totalseasons(){
+    return movie_totalseasons;
+} 
 
 
 Request::Request(std::string API_URL){
@@ -139,7 +210,31 @@ int main(int argc, char *argv[]){
         Request site_data = Request(api_url+movie_name);
         if(site_data.res == 0){
             Movie testando = Movie(site_data.info);
-            testando.getMovie_description();
+            std::cout << "Título: " << testando.getMovie_title() << std::endl;
+            std::cout << "Year: " << testando.getMovie_year() << std::endl;
+            std::cout << "Rated: " << testando.getMovie_rated() << std::endl;
+            std::cout << "Released: " << testando.getMovie_released() << std::endl;
+            std::cout << "Runtime: " << testando.getMovie_runtime() << std::endl;
+            std::cout << "Genre: " << testando.getMovie_genre() << std::endl;
+            std::cout << "DIrector: " << testando.getMovie_director() << std::endl;
+            std::cout << "Writer: " << testando.getMovie_writer() << std::endl;
+            std::cout << "Actors: " << testando.getMovie_actors() << std::endl;
+            std::cout << "Plot: " << testando.getMovie_plot() << std::endl;
+            std::cout << "Language: " << testando.getMovie_language() << std::endl;
+            std::cout << "Country: " << testando.getMovie_country() << std::endl;
+            std::cout << "Awards: " << testando.getMovie_awards() << std::endl;
+            std::cout << "Poster: " << testando.getMovie_poster() << std::endl;
+            std::cout << "Source: " << testando.getMovie_source() << std::endl;
+            std::cout << "Value: " << testando.getMovie_value() << std::endl;
+            std::cout << "Metascore: " << testando.getMovie_metascore() << std::endl;
+            std::cout << "imdbRating: " << testando.getMovie_imdbrating() << std::endl;
+            std::cout << "imdbID: " << testando.getMovie_imdbid() << std::endl;
+            std::cout << "Type: " << testando.getMovie_type() << std::endl;
+            std::cout << "DVD: " << testando.getMovie_dvd() << std::endl;
+            std::cout << "BoxOffice: " << testando.getMovie_boxoffice() << std::endl;
+            std::cout << "Production: " << testando.getMovie_production() << std::endl;
+            std::cout << "Website: " << testando.getMovie_website() << std::endl;
+            std::cout << "Total Seasons: " << testando.getMovie_totalseasons() << std::endl;
         } else {
             std::cout << "Falha para conectar com o site.\n";
         }

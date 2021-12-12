@@ -30,8 +30,32 @@ class Movie{
     public:
         Movie(std::string movie_data);
         std::string parse_string(std::string data_to_parse, std::string str_i, std::string str_f);
+        std::string getMovie_title();
+        std::string getMovie_year();
+        std::string getMovie_rated();
+        std::string getMovie_released();
+        std::string getMovie_runtime();
+        std::string getMovie_genre();
+        std::string getMovie_director();
+        std::string getMovie_writer();
+        std::string getMovie_actors();
+        std::string getMovie_plot();
+        std::string getMovie_language();
+        std::string getMovie_country();
+        std::string getMovie_awards();
+        std::string getMovie_poster();
+        std::string getMovie_source();
+        std::string getMovie_value();
+        std::string getMovie_metascore();
+        std::string getMovie_imdbrating();
+        std::string getMovie_imdbvotes();
+        std::string getMovie_imdbid();
         std::string getMovie_type();
-        void getMovie_description();
+        std::string getMovie_dvd();
+        std::string getMovie_boxoffice();
+        std::string getMovie_production();
+        std::string getMovie_website();
+        std::string getMovie_totalseasons();
 };
 
 class Request{
